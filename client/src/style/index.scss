@@ -8,6 +8,15 @@
   box-sizing: border-box;
 }
 
+button {
+  border: unset;
+  background: unset;
+  font: unset;
+  color: unset;
+  cursor: pointer;
+  outline: unset;
+}
+
 body {
   background: var(--primary-color);
   color: var(--text-dark-color);
