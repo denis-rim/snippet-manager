@@ -1,0 +1,21 @@
+.snippet {
+  background: var(--light-color);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  margin: 1.2rem 0;
+  padding: 1rem;
+
+  .title,
+  .description,
+  .code {
+    margin-bottom: 1rem;
+  }
+
+  .code {
+    background: var(--dark-color);
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+  }
+}

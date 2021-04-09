@@ -1,4 +1,5 @@
 import axios from "axios";
+import "./Snippet.scss";
 
 const Snippet = ({ snippet, getSnippets, editSnippet }) => {
   const deleteSnippet = async () => {
@@ -9,10 +10,12 @@ const Snippet = ({ snippet, getSnippets, editSnippet }) => {
 
   return (
     <div className="snippet">
-      {snippet.title && <h2>{snippet.title}</h2>}
-      {snippet.description && <p>{snippet.description}</p>}
+      {snippet.title && <h2 className="title">{snippet.title}</h2>}
+      {snippet.description && (
+        <p className="description">{snippet.description}</p>
+      )}
       {snippet.code && (
-        <pre>
+        <pre className="code">
           <code>{snippet.code}</code>
         </pre>
       )}

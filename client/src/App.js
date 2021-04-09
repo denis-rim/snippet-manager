@@ -1,8 +1,9 @@
 import Router from "./Router";
+import "./style/index.scss";
 
 const App = () => {
   return (
-    <div>
+    <div className="container">
       <Router />
     </div>
   );
