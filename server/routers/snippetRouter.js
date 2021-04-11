@@ -1,8 +1,11 @@
 const router = require("express").Router();
 const Snippet = require("../models/snippetModel");
+const auth = require("../middleware/auth");
 
-router.get("/", async (req, res) => {
+router.get("/", auth, async (req, res) => {
   try {
+    console.log(req.user);
+
     const snippets = await Snippet.find();
     res.json(snippets);
   } catch (error) {
