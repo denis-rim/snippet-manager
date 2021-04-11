@@ -21,6 +21,7 @@ app.listen(5000, () => console.log("Server started"));
 // set up routers
 
 app.use("/snippet", require("./routers/snippetRouter"));
+app.use("/auth", require("./routers/userRouter"));
 
 // connect to MongoDB
 
