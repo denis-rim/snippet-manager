@@ -1,4 +1,5 @@
 @import "./variables";
+@import "mixins";
 
 *,
 :before,
@@ -6,15 +7,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-button {
-  border: unset;
-  background: unset;
-  font: unset;
-  color: unset;
-  cursor: pointer;
-  outline: unset;
 }
 
 body {
@@ -29,4 +21,21 @@ body {
   padding: 1rem;
   max-width: 1000px;
   margin: 0 auto;
+}
+
+// reset
+
+button {
+  border: unset;
+  background: unset;
+  font: unset;
+  color: unset;
+  cursor: pointer;
+  outline: unset;
+}
+
+a {
+  color: unset;
+  text-decoration: unset;
+  @include link();
 }
