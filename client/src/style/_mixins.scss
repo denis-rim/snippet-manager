@@ -15,3 +15,10 @@
     text-decoration: underline;
   }
 }
+
+@mixin card() {
+  background: var(--light-color);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+}

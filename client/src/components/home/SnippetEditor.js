@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+import "./SnippetEditor.scss";
+
 const SnippetEditor = ({
   getSnippets,
   setSnippetEditorOpen,
@@ -72,8 +74,10 @@ const SnippetEditor = ({
           value={editorCode}
           onChange={(e) => setEditorCode(e.target.value)}
         />
-        <button type="submit">Save snippet</button>
-        <button type="button" onClick={closeEditor}>
+        <button className="btn-save" type="submit">
+          Save
+        </button>
+        <button className="btn-cancel" type="button" onClick={closeEditor}>
           Close
         </button>
       </form>
