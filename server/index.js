@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 dotenv.config();
 
@@ -13,14 +14,17 @@ app.use(express.json());
 app.use(
   cors({
     origin: "http://localhost:3000",
+    credential: true,
   })
 );
+app.use(cookieParser());
 
 app.listen(5000, () => console.log("Server started"));
 
 // set up routers
 
 app.use("/snippet", require("./routers/snippetRouter"));
+app.use("/auth", require("./routers/userRouter"));
 
 // connect to MongoDB
 
