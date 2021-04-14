@@ -11,7 +11,7 @@ const Home = () => {
   const [snippetEditorOpen, setSnippetEditorOpen] = useState(false);
   const [editSnippetData, setEditSnippetData] = useState(null);
 
-  const user = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     // get snippets
