@@ -49,7 +49,7 @@ router.put("/:id", auth, async (req, res) => {
 
     if (!description && !code) {
       return res.status(400).json({
-        errorMessage: "You need to enter al last a description or some code.",
+        errorMessage: "You need to enter at last a description or some code.",
       });
     }
 

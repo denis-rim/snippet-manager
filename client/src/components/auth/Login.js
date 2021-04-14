@@ -4,10 +4,12 @@ import axios from "axios";
 import UserContext from "../../context/UserContext";
 
 import "./AuthForm.scss";
+import ErrorMessage from "../misc/ErrorMessage";
 
 const Login = () => {
   const [formEmail, setFormEmail] = useState("");
   const [formPassword, setFormPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const { getUser } = useContext(UserContext);
 
@@ -20,17 +22,28 @@ const Login = () => {
       email: formEmail,
       password: formPassword,
     };
-
-    await axios.post("http://localhost:5000/auth/login/", loginData);
+    try {
+      await axios.post("http://localhost:5000/auth/login/", loginData);
+    } catch (error) {
+      if (error.response.data.errorMessage) {
+        setErrorMessage(error.response.data.errorMessage);
+      }
+      return;
+    }
 
     await getUser();
-
     history.push("/");
   };
 
   return (
     <div className="auth-form">
       <h2>Log in</h2>
+      {errorMessage && (
+        <ErrorMessage
+          message={errorMessage}
+          clear={() => setErrorMessage(null)}
+        />
+      )}
       <form className="form" onSubmit={login}>
         <label htmlFor="form-email">Email</label>
         <input
