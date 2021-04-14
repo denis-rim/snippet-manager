@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, u, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 
 import "./AuthForm.scss";
@@ -63,7 +63,7 @@ const Register = () => {
         </button>
       </form>
       <p>
-        Already have an account? <Link to="/login">Login instead</Link>
+        Already have an account? <Link to="/login"> Login instead</Link>
       </p>
     </div>
   );

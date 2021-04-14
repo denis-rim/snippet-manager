@@ -1,4 +1,4 @@
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../../context/UserContext";
 
@@ -7,8 +7,6 @@ import axios from "axios";
 
 const Navbar = () => {
   const { user, getUser } = useContext(UserContext);
-
-  // const history = useHistory();
 
   const logOut = async () => {
     await axios.get("http://localhost:5000/auth/logout");
@@ -21,15 +19,17 @@ const Navbar = () => {
       <Link to="/">
         <h1>Snippet manager</h1>
       </Link>
-      {!user ? (
+      {user === null ? (
         <>
           <Link to="/login">Log in</Link>
           <Link to="/register">Register</Link>
         </>
       ) : (
-        <button onClick={logOut} className="btn-logout">
-          Log out
-        </button>
+        user && (
+          <button onClick={logOut} className="btn-logout">
+            Log out
+          </button>
+        )
       )}
     </div>
   );

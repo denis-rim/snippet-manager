@@ -5,4 +5,32 @@
     @include btn();
     background: var(--light-color);
   }
+
+  .no-snippets-msg {
+    margin-top: 2rem;
+    color: var(--text-light-color);
+    font-weight: bold;
+  }
+
+  .no-user-message {
+    margin-top: 6rem;
+    text-align: center;
+    color: var(--text-light-color);
+
+    h2 {
+      font-size: 3rem;
+    }
+
+    a {
+      @include btn();
+      margin-top: 2rem;
+      color: var(--text-dark-color);
+      display: inline-block;
+      background: var(--light-color);
+
+      &:hover {
+        text-decoration: unset;
+      }
+    }
+  }
 }

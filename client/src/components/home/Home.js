@@ -5,6 +5,7 @@ import SnippetEditor from "./SnippetEditor";
 import UserContext from "../../context/UserContext";
 
 import "./Home.scss";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [snippets, setSnippets] = useState([]);
@@ -14,9 +15,9 @@ const Home = () => {
   const { user } = useContext(UserContext);
 
   useEffect(() => {
-    // get snippets
-    getSnippets();
-  }, []);
+    if (!user) setSnippets([]);
+    else getSnippets();
+  }, [user]);
 
   const getSnippets = async () => {
     const snippetsRes = await axios.get("http://localhost:5000/snippet");
@@ -63,7 +64,17 @@ const Home = () => {
           editSnippetData={editSnippetData}
         />
       )}
-      {renderSnippets()}
+      {snippets.length > 0
+        ? renderSnippets()
+        : user && (
+            <p className="no-snippets-msg">No snippets have been added yet.</p>
+          )}
+      {user === null && (
+        <div className="no-user-message">
+          <h2>Welcome to Snippet manager</h2>
+          <Link to="/register">Register here</Link>
+        </div>
+      )}
     </div>
   );
 };

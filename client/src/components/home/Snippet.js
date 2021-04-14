@@ -3,9 +3,11 @@ import "./Snippet.scss";
 
 const Snippet = ({ snippet, getSnippets, editSnippet }) => {
   const deleteSnippet = async () => {
-    await axios.delete(`http://localhost:5000/snippet/${snippet._id}`);
+    if (window.confirm("Do you want to delete this snippet?")) {
+      await axios.delete(`http://localhost:5000/snippet/${snippet._id}`);
 
-    getSnippets();
+      getSnippets();
+    }
   };
 
   return (

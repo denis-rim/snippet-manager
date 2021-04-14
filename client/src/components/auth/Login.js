@@ -54,7 +54,7 @@ const Login = () => {
       </form>
       <p>
         Don't have an account yet?
-        <Link to="/register">Register here</Link>
+        <Link to="/register"> Register here</Link>
       </p>
     </div>
   );
