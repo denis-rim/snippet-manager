@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import "./AuthForm.scss";
+
 const Register = () => {
   const [formEmail, setFormEmail] = useState("");
   const [formPassword, setFormPassword] = useState("");
@@ -22,7 +24,7 @@ const Register = () => {
   return (
     <div className="auth-form">
       <h2>Register a new account</h2>
-      <form onSubmit={register}>
+      <form className="form" onSubmit={register}>
         <label htmlFor="form-email">Email</label>
         <input
           id="form-email"
@@ -47,7 +49,9 @@ const Register = () => {
           onChange={(e) => setFormPasswordVerify(e.target.value)}
         />
 
-        <button type="submit">Register</button>
+        <button className="btn-submit" type="submit">
+          Register
+        </button>
       </form>
       <p>
         Already have an account? <Link to="/login">Login instead</Link>

@@ -3,31 +3,6 @@
 .snippet-editor {
   @include card();
 
-  label,
-  input,
-  textarea {
-    display: block;
-  }
-
-  label {
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
-  }
-
-  input,
-  textarea {
-    margin-bottom: 1rem;
-    width: 100%;
-    background: var(--dark-color);
-    padding: 0.3rem 0.5rem;
-    border-radius: 5px;
-  }
-
-  textarea {
-    height: 200px;
-    resize: none;
-  }
-
   .btn-save,
   .btn-cancel {
     @include btn();

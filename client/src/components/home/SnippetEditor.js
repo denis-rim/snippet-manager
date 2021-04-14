@@ -51,7 +51,7 @@ const SnippetEditor = ({
   };
   return (
     <div className="snippet-editor">
-      <form onSubmit={saveSnippet}>
+      <form className="form" onSubmit={saveSnippet}>
         <label htmlFor="editor-title">Title</label>
         <input
           id="editor-title"

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+// import "AuthForm.scss";
+
 const Login = () => {
   const [formEmail, setFormEmail] = useState("");
   const [formPassword, setFormPassword] = useState("");
@@ -20,7 +22,7 @@ const Login = () => {
   return (
     <div className="auth-form">
       <h2>Log in</h2>
-      <form onSubmit={login}>
+      <form className="form" onSubmit={login}>
         <label htmlFor="form-email">Email</label>
         <input
           id="form-email"
@@ -37,7 +39,9 @@ const Login = () => {
           onChange={(e) => setFormPassword(e.target.value)}
         />
 
-        <button type="submit">Log in </button>
+        <button className="btn-submit" type="submit">
+          Log in{" "}
+        </button>
       </form>
       <p>
         Don't have an account yet?
